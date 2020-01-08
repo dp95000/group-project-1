@@ -1,3 +1,4 @@
+
 //SAVING THIS CODE AS OF RIGHT NOW
 
  //$(document).ready(function(){
@@ -95,3 +96,5 @@ function initMap() {
 
           }
         })
+
+
