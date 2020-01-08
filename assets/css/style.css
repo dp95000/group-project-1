@@ -9,6 +9,24 @@ footer {text-align: center; padding: 2em;}
 .right-side, .left-side {padding: 2em;}
 h1, h2, h3 {margin-bottom: 20px;}
 
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    width: 35%;
+  }
+
+form.example button {
+    width: 15%;
+    padding: 10px;
+    background: rgb(193, 198, 202);
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; 
+    cursor: pointer;
+  }
+
 @media (min-width: 768px) {
     #logo {font-size: 1.5em; padding-top: .5em;}
     nav {padding-top: .5em;}
