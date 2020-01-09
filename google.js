@@ -1,5 +1,6 @@
 (function(window, $) {
 
+
     var $mapster = $('#map-canvas').mapster(Mapster.MAP_OPTIONS);
 
     $mapster.mapster('getCurrentPosition', function(position) {
@@ -11,5 +12,4 @@
 });
 
 }(window, jQuery));
-
 
