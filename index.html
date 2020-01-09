@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Project Title</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700|Open+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -55,13 +55,14 @@
         <div class="container-fluid">
           <div class="row">
               <div class="col-md-6 left-side">
-                <form>
-
+                <form class="example">
+                  <input id="city" type="text" placeholder="Enter city name..." name="search">
+                  <button id="citySearchBtn" type="submit"><i class="fa fa-search"></i>Search</button>
                 </form>
               </div>
               <div class="col-md-6 right-side">
                   <h2>Billboard Inventory Management</h2>
-                  <p>User our special billboard Inventory Mangagement system to view locations of our available billboard signs.  If you
+                  <p>Use our special billboard Inventory Management system to view locations of our available billboard signs.  If you
                      are a business owner, fill out the form to the left to see which advertising markets are right for you.
                   </p>
               </div>
@@ -85,12 +86,17 @@
 </body>
 <!-- End of Body -->
 
-<!--<script src="assets/js/script.js"></script>
-<script src="google.js"></script>
+
+
+
 <script src="map-options.js"></script>
 <script src="jqueryui_mapster.js"></script>
 <script src="list.js"></script>
 <script src="Mapster.js"></script>>-->
 <script src="gmap.js"></script>
+
+<script src="assets/js/script.js"></script>
+<script src="google.js"></script>
+
 
 </html>
