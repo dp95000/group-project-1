@@ -3,13 +3,15 @@
 $(document).ready(function(){
 
 
-  //start of Postman code
+  //start of Postman code 
+  //if we wanted to dynamically show data for any user-entered city, we need to figure out how to take the user-input city and get it into the proper format of the "studyAreas" URL parameter
+  //because we're limiting the MVP version to just Philly, we are hard coding Philly's lat/lon in the "geometry" part of the URL below
   var settings = {
     "url": `https://geoenrich.arcgis.com/arcgis/rest/services/World/geoenrichmentserver/GeoEnrichment/enrich?studyAreas=[
     {
       \"geometry\":{
-        \"x\":-118.09047,
-        \"y\":33.81091
+        \"x\":-75.165222, 
+        \"y\":39.952583
       }
     }
   ]&studyAreasOptions={
@@ -24,7 +26,7 @@ $(document).ready(function(){
     }`,
     "data": {
       "f": "json",
-      "token": "ErJPk_70T3vhX4AguDPF98zEJviKZlXf4_v9VNt-4fVXsGh3vAX3yWOs_36mS942CVInVv7_3Z8sFi0x_-URHhHH3QJ2-TFF6BszvPH5_ZLiUAa3ahikbnSHx-5eAc9h",
+      "token": "20TQGv5mqE_S1-xnEch0M5CpRWEXwJ2p_hP2pHxrd--9By-YhbrdhFONCH4QDeFR8TfcxfJqVAQ5gsJ9T0k_4Culo3yJjtk8bFdanpeYyJekK83gL5ztX2qGkINtNgqJXDERAGOuL1TyE4ZGHCQBMg..",
       "inSR": "4326",
       "outSR": "4326",
       "returnGeometry": "true"
