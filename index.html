@@ -61,7 +61,9 @@
           // Add marker
           addMarker({coords:event.latLng});
         });
-  
+
+       
+
         /*
         // Add marker
         var marker = new google.maps.Marker({
@@ -80,6 +82,7 @@
         */
   
         // Array of markers
+
         var markers = [
           {
             coords:{lat:42.4668,lng:-70.9495},
@@ -127,6 +130,22 @@
           }
         }
       }
+
+
+      var locations = [];
+      locations.push( {name:"", lating: new google.maps.LatLng(0,0)} );
+      locations.push( {name:"", lating: new google.maps.LatLng(0,0)} );
+      locations.push( {name:"", lating: new google.maps.LatLng(0,0)} );
+
+      var bounds = new google.maps.LatLngBounds ();
+      for(var i=0; i<locations.length; i++) {
+        var marker = new google.maps.Marker({position: locations[i].latlng, map:map, title:locations[i].name});
+        bounds.extend (locations[i].latlng);
+      }
+      map.fitBounds (bounds);
+
+
+
     </script>
     <!-- End of Header Section -->
     <section id="content">
@@ -174,10 +193,14 @@
 
 
 
-<script src="map-options.js"></script>
+<!--<script src="map-options.js"></script>
 <script src="jqueryui_mapster.js"></script>
 <script src="list.js"></script>
-<script src="Mapster.js"></script>>-->
+
+<script src="Mapster.js"></script>>
+<script src="google.js"></script>-->
+
+
 
 
 
@@ -188,7 +211,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCf975ZvBPWoy0r6GlhgTohdNA
 
 
 <script src="assets/js/script.js"></script>
-<script src="google.js"></script>
+
 
 
 </html>
