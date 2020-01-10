@@ -40,4 +40,4 @@ $(document).ready(function(){
 
 /*DEV NOTES====================================================
 
-- first function should be to get input city's map coords and put them into the arcGIS "geometry" field 
+- first function should be to get input city's map coords and put them into the arcGIS "geometry" field  */
