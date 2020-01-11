@@ -1,6 +1,14 @@
 // Main Javascript File
 
 $(document).ready(function(){
+
+  function showTable(){
+    $(".demographics-table").css("display", "block");
+  };
+
+  $("#demoBtn").on("click", function(event) {
+    showTable();
+  });
   
   //because we're limiting the MVP version to just Philly, we are hard coding Philly's latitude and longitude in the "geometry" in the URL below
   var settings = {

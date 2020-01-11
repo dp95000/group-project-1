@@ -28,9 +28,10 @@ form.example button {
   }
 
   .padfix {padding: 0;}
-  .deomgraphics-table {
+  .demographics-table {
     display: table;
     width: 100%;
+    display: none;
   }
   .cell-output {
     border: 1px solid black;
