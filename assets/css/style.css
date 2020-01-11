@@ -27,6 +27,16 @@ form.example button {
     cursor: pointer;
   }
 
+  .padfix {padding: 0;}
+  .deomgraphics-table {
+    display: table;
+    width: 100%;
+  }
+  .cell-output {
+    border: 1px solid black;
+    display: table-cell;
+  }
+
   .bbicon {
     height: 30px;
     width: 30px;
