@@ -27,6 +27,15 @@ form.example button {
     cursor: pointer;
   }
 
+  .bbicon {
+    height: 30px;
+    width: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 10px;
+  }
+
 @media (min-width: 768px) {
     #logo {font-size: 1.5em; padding-top: .5em;}
     nav {padding-top: .5em;}
