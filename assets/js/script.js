@@ -1,16 +1,13 @@
 // Main Javascript File
 
 $(document).ready(function(){
-
-
-  //start of Postman code 
-  //if we wanted to dynamically show data for any user-entered city, we need to figure out how to take the user-input city and get it into the proper format of the "studyAreas" URL parameter
-  //because we're limiting the MVP version to just Philly, we are hard coding Philly's lat/lon in the "geometry" part of the URL below
+  
+  //because we're limiting the MVP version to just Philly, we are hard coding Philly's latitude and longitude in the "geometry" in the URL below
   var settings = {
     "url": `https://geoenrich.arcgis.com/arcgis/rest/services/World/geoenrichmentserver/GeoEnrichment/enrich?studyAreas=[
     {
       \"geometry\":{
-        \"x\":-75.165222, 
+        \"x\":-75.165222,
         \"y\":39.952583
       }
     }
@@ -26,20 +23,54 @@ $(document).ready(function(){
     }`,
     "data": {
       "f": "json",
-      "token": "20TQGv5mqE_S1-xnEch0M5CpRWEXwJ2p_hP2pHxrd--9By-YhbrdhFONCH4QDeFR8TfcxfJqVAQ5gsJ9T0k_4Culo3yJjtk8bFdanpeYyJekK83gL5ztX2qGkINtNgqJXDERAGOuL1TyE4ZGHCQBMg..",
+      "token": "MWvelydDb3Ha4A_iT9k-bXgjFlIXG2JDN9NR7wjMpgEF9geal21mMaaOJkthcf-mZSeqyiiBpkQv1e4U4nON-4fbspXp20QN9OazqrcfkfmblmrD_owHh6_KtAGxikIOL_XtfHK40k2gF1wset9YGA..",
       "inSR": "4326",
       "outSR": "4326",
       "returnGeometry": "true"
     }
   };
   
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-  }); //ends postman code
-  
-  
+    $.ajax(settings).done(function(response) {
+      console.log(JSON.parse(response));
+    
+      $("#totPopVal").prepend(JSON.parse(response).results[0].value.FeatureSet[0].features[0].attributes.TOTPOP_CY);
+      $("#totMalesVal").prepend(JSON.parse(response).results[0].value.FeatureSet[0].features[0].attributes.TOTMALES);
+      $("#totFemalesVal").prepend(JSON.parse(response).results[0].value.FeatureSet[0].features[0].attributes.TOTFEMALES);
+      $("#totHHVal").prepend(JSON.parse(response).results[0].value.FeatureSet[0].features[0].attributes.TOTHH_CY);
+      $("#medHincVal").prepend(JSON.parse(response).results[0].value.FeatureSet[0].features[0].attributes.MEDHINC_CY);
+      $("#pciVal").prepend(JSON.parse(response).results[0].value.FeatureSet[0].features[0].attributes.PCI_CY);
+      $("#divIndxVal").prepend(JSON.parse(response).results[0].value.FeatureSet[0].features[0].attributes.DIVINDX_CY);
+    
+    
+    });
   }); //closes document.ready
-
+  
+  
+    
 /*DEV NOTES====================================================
 
-- first function should be to get input city's map coords and put them into the arcGIS "geometry" field  */
+DATA POINTS PULLED FROM API:
+  
+  FIELD NAME AND ID:
+  Total Population  id="totPop"
+  Total Male Population  id="totMales"
+  Total Female Population  id="totFemales"
+  2019 Total Households  id="totHH"
+  2019 Median Household Income  id="medHinc"
+  2019 Per Capita Income  id="pci"
+  2019 Diversity Index id="divIndx"
+  
+  DATA VALUE AND ID:
+  Total Population  id="totPopVal"
+  Total Male Population  id="totMalesVal"
+  Total Female Population  id="totFemalesVal"
+  2019 Total Households  id="totHHVal"
+  2019 Median Household Income  id="medHincVal"
+  2019 Per Capita Income  id="pciVal"
+  2019 Diversity Index id="divIndxVal"
+
+
+  NOTES FOR FUTURE DEV:
+  - implement a demographics solution that doesn't require refreshing your token every 2 hours
+
+==============================================================*/
