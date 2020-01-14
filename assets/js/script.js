@@ -8,6 +8,7 @@ $(document).ready(function(){
 
   $("#demoBtn").on("click", function(event) {
     showTable();
+    $("#demoBtn").css("display", "none");
   });
   
   //because we're limiting the MVP version to just Philly, we are hard coding Philly's latitude and longitude in the "geometry" in the URL below

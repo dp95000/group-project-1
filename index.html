@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
   <title>Billboard Tracking System</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- foundation-float.min.css: Compressed CSS with legacy Float Grid -->
@@ -26,21 +27,65 @@
     <header>
         
             <div class="row">
-                <div class="columns medium-6">
+                <div class="columns small-6 medium-6">
                   <div id="logo">
                       <p>Billboard Tracking System</p>
                   </div>
                 </div>
-                  <div class="columns medium-6">
-                      <nav>
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Contact</a></li>
+                  <div class="columns small-6 medium-6">
+                    <nav class="nav">
+
+                      <div class="hamburger-container">
+                        <ul class="hamburger">
+                          <li></li>
+                          <li></li>
+                          <li></li>
                         </ul>
-                      </nav>
+                      </div>
+                    
+                      <ul id="menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                      </ul>
+                    
+                    </nav>
                   </div>
             </div>
+
+            <script>
+              $(document).ready(function() {
+                //toggle menu
+                $(".hamburger-container").click(function() {
+                  $("#menu").slideToggle();
+                });
+
+                //to fix issue that toggle adds style(hides) to nav
+                $(window).resize(function() {
+                  if (window.innerWidth > 1024) {
+                    $("#menu").removeAttr("style");
+                  }
+                });
+
+                //icon animation
+                var topBar = $(".hamburger li:nth-child(1)"),
+                  middleBar = $(".hamburger li:nth-child(2)"),
+                  bottomBar = $(".hamburger li:nth-child(3)");
+
+                $(".hamburger-container").on("click", function() {
+                  if (middleBar.hasClass("rot-45deg")) {
+                    topBar.removeClass("rot45deg");
+                    middleBar.removeClass("rot-45deg");
+                    bottomBar.removeClass("hidden");
+                  } else {
+                    bottomBar.addClass("hidden");
+                    topBar.addClass("rot45deg");
+                    middleBar.addClass("rot-45deg");
+                  }
+                });
+              });
+
+              </script>
           
     </header>
     <!-- End of Header Section -->
@@ -57,15 +102,22 @@
         </div>
         <div class="container-fluid">
           <div class="row">
-            <div class="columns medium-6 left-side">
-              <button id="demoBtn" type="button" class="button">Get Demographics</button>
-            </div>
-          </div>
-          <div class="row">
               <div class="columns medium-6 left-side">
+
+                <button id="demoBtn" type="button" class="button">Get Demographics</button>
 
                 <!-- Demographics Data Output Table -->
                 <div class="demographics-table">
+
+                  <!-- Total Population -->
+                  <div class="row">
+                      <div class="columns medium-6 cell-output">
+                        <strong><p>Selected City:</p>
+                      </div>
+                      <div class="columns medium-6 cell-output">
+                        <p>Philadelphia</p>
+                      </div>
+                  </div>
 
                   <!-- Total Population -->
                   <div class="row">
@@ -156,18 +208,13 @@
     </section>
 
 
-    <!-- Start of Footer Section -->
-    <footer>
+<!-- Start of Footer Section -->
+  <footer>
         <div class="copyright">
            <p>&copy; 2020 Billboard Inventory Management System</p>
         </div>
-    </footer>
-    <!-- End of Footer Section -->
-
-    <p>
-
-      
-    </p>
+  </footer>
+  <!-- End of Footer Section -->
 </body>
 <!-- End of Body -->
 
