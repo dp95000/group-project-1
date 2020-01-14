@@ -97,14 +97,28 @@
                 <p>If you have any questions about this site or the services we offer, please don't hesitate to reach out to us.</p>
                 <br>
                 <form id="contact-form">
-                    <input type="text" placeholder="Name">
-                    <input type="email" placeholder="Email">
-                    <textarea rows="4" cols="50" placeholder="Comments"></textarea>
+                    <input id="senderName" type="text" placeholder="Name">
+                    <input id="senderEmail" type="email" placeholder="Email">
+                    <textarea id="senderMessage" rows="4" cols="50" placeholder="Comments"></textarea>
                     <button type="button" id="sendform">Submit Form</button>
                 </form>
             </div>
         </div>
     </section>
+
+    <script>
+      $(document).ready(function() {
+        $("#sendform").on("click", function(){
+        event.preventDefault();
+        var senderName = $("#senderName").val();
+        var emailFrom = $("#senderEmail").val();
+        var emailBody = $("#senderMessage").val();
+        emailBody = emailBody + "%0A" + "%0A" + "Sender's Name: " + senderName + " | " + "  Sender's Email: " + emailFrom + "%0A";
+        window.location.href = "mailto:tylerdjenkins123@gmail.com?&subject=Billboard%20inquiry&body=" + emailBody;
+        });    
+      });
+    </script>
+
 
 <!-- Start of Footer Section -->
 <footer>
